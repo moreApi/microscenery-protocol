@@ -1,4 +1,5 @@
 syntax = "proto3";
+package WithXR.Proto;
 
 import "BaseAPI/BaseNetworkTypes.proto";
 
