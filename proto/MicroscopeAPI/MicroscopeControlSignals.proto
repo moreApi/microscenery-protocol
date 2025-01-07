@@ -2,6 +2,7 @@ syntax = "proto3";
 package WithXR.Proto;
 
 import "BaseAPI/BaseNetworkTypes.proto";
+import "BaseAPI/BaseSignals.proto";
 
 option java_package = "me.jancasus.microscenery.network.v3";
 option java_outer_classname = "ClientSignals";
@@ -26,7 +27,6 @@ message Live {}
 message MoveStage {
   Vector3Float target = 1;
 }
-message ClientSignOn {}
 message Shutdown {}
 message SnapImage {}
 message AcquireStack{
