@@ -8,15 +8,18 @@ option java_package = "org.withXR.network.v3";
 option java_outer_classname = "WrapSignals";
 option java_multiple_files = true;
 
-message BaseSignal{
+message BaseServerSignal{
   oneof signal{
       DataAvailableSignal dataAvailableSignal = 1;
       AppSpecific appSpecific = 2;
   }
 }
 
-message AppSpecific{
-  bytes data = 1;
+message BaseClientSignal{
+  oneof signal{
+    ClientSignOn clientSignOn = 1;
+    AppSpecific appSpecific = 2;
+  }
 }
 
 message DataAvailableSignal{
@@ -25,6 +28,14 @@ message DataAvailableSignal{
     Slice slice = 2;
   }
 }
+
+message AppSpecific{
+  bytes data = 1;
+}
+
+message ClientSignOn {}
+
+
 
 // stack and slice IDs should come from the same generator and have to be unique and lager than 0
 
