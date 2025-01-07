@@ -2,7 +2,6 @@ syntax = "proto3";
 package WithXR.Proto;
 
 import "BaseAPI/BaseNetworkTypes.proto";
-import "BaseAPI/BaseSignals.proto";
 
 option java_package = "me.jancasus.microscenery.network.v3";
 option java_outer_classname = "ClientSignals";
@@ -12,7 +11,6 @@ message MicroscopeControlSignal {
   oneof signal{
     Live live = 1;
     MoveStage moveStage = 2;
-    ClientSignOn clientSignOn = 3;
     Shutdown shutdown = 4;
     SnapImage snapImage = 5;
     AcquireStack acquireStack = 6;
