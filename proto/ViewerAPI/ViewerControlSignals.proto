@@ -1,0 +1,21 @@
+syntax = "proto3";
+package WithXR.Proto;
+
+import "BaseAPI/BaseNetworkTypes.proto";
+
+option java_package = "org.withXR.network.v3.viewerApi";
+option java_outer_classname = "ViewerControlSignals";
+option java_multiple_files = true;
+
+message ViewerControlSignal{
+  oneof signal{
+    Vector3Function vectorFunction = 1;
+  }
+}
+
+
+message Vector3Function{
+  repeated Vector3Float vectors = 1;
+  optional string name = 2;
+  optional int32 onID = 3;
+}
