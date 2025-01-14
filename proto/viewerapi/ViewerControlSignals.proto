@@ -7,15 +7,28 @@ option java_package = "org.withXR.network.v3.viewerApi";
 option java_outer_classname = "ViewerControlSignals";
 option java_multiple_files = true;
 
+// ------- Client Signals ---------
+
 message ViewerControlSignal{
   oneof signal{
     Segmentation segmentation = 1;
   }
 }
 
-
 message Segmentation{
   repeated baseapi.Vector3Float foreground = 1;
   repeated baseapi.Vector3Float background = 2;
   int32 onID = 3;
+}
+
+// ------- Server Signals ---------
+
+message ViewerSignal{
+  oneof signal{
+    SelectedStack selectedStack = 1;
+  }
+}
+
+message SelectedStack{
+  int32 id = 1;
 }
