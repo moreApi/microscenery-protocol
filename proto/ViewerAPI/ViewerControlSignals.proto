@@ -9,12 +9,13 @@ option java_multiple_files = true;
 
 message ViewerControlSignal{
   oneof signal{
-    Vector3Function vectorFunction = 1;
+    Segmentation segmentation = 1;
   }
 }
 
 
-message Vector3Function{
-  repeated Vector3Float vectors = 1;
-  int32 onID = 2;
+message Segmentation{
+  repeated Vector3Float foreground = 1;
+  repeated Vector3Float background = 2;
+  int32 onID = 3;
 }
