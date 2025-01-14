@@ -1,7 +1,7 @@
 syntax = "proto3";
-package WithXR.Proto;
+package viewerapi;
 
-import "BaseAPI/BaseNetworkTypes.proto";
+import "baseapi/BaseNetworkTypes.proto";
 
 option java_package = "org.withXR.network.v3.viewerApi";
 option java_outer_classname = "ViewerControlSignals";
@@ -15,7 +15,7 @@ message ViewerControlSignal{
 
 
 message Segmentation{
-  repeated Vector3Float foreground = 1;
-  repeated Vector3Float background = 2;
+  repeated baseapi.Vector3Float foreground = 1;
+  repeated baseapi.Vector3Float background = 2;
   int32 onID = 3;
 }

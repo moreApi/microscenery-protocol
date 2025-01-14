@@ -1,8 +1,8 @@
 syntax = "proto3";
-package WithXR.Proto;
+package baseapi;
 
 import "google/protobuf/timestamp.proto";
-import "BaseAPI/BaseNetworkTypes.proto";
+import "baseapi/BaseNetworkTypes.proto";
 
 option java_package = "org.withXR.network.v3";
 option java_outer_classname = "WrapSignals";
