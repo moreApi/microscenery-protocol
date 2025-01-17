@@ -42,5 +42,6 @@ message SelectedStack{
 
 message NewHyperStack{
   int32 id = 1;
-  repeated int32 timepointStackIds = 2;
+  string name = 2;
+  repeated int32 timepointStackIds = 3;
 }
