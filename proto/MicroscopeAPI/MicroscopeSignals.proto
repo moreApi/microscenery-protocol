@@ -1,8 +1,8 @@
 syntax = "proto3";
 package WithXR.Proto;
 
-import "BaseAPI/BaseNetworkTypes.proto";
-import "BaseAPI/BaseSignals.proto";
+import "baseapi/BaseNetworkTypes.proto";
+import "baseapi/BaseSignals.proto";
 
 option java_package = "me.jancasus.microscenery.network.v3";
 option java_outer_classname = "MicroscopeSignals";
@@ -18,7 +18,7 @@ message MicroscopeSignal{
 
 message MicroscopeStatus{
   EnumServerState state = 1;
-  Vector3Float stagePosition = 2;
+  baseapi.Vector3Float stagePosition = 2;
   bool live = 3;
   bool ablationShutterOpen = 4;
 }
@@ -36,9 +36,9 @@ enum EnumServerState{
 }
 
 message HardwareDimensions{
-  Vector3Float stageMin = 1;
-  Vector3Float stageMax = 2;
-  ImageMeta imageMeta = 3;
+  baseapi.Vector3Float stageMin = 1;
+  baseapi.Vector3Float stageMax = 2;
+  baseapi.ImageMeta imageMeta = 3;
 }
 
 message AblationResults{

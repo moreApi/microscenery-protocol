@@ -1,7 +1,7 @@
 syntax = "proto3";
 package WithXR.Proto;
 
-import "BaseAPI/BaseNetworkTypes.proto";
+import "baseapi/BaseNetworkTypes.proto";
 
 option java_package = "me.jancasus.microscenery.network.v3";
 option java_outer_classname = "MicroManagerSignals";
@@ -15,5 +15,5 @@ message MicroManagerSignal{
 
 message AddToPositionList{
    string label = 1;
-   Vector3Float pos = 2;
+   baseapi.Vector3Float pos = 2;
 }
