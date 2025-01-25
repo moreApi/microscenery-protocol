@@ -44,4 +44,7 @@ message NewHyperStack{
   int32 id = 1;
   string name = 2;
   repeated int32 timepointStackIds = 3;
+  optional float displayRangeMin = 4;
+  optional float displayRangeMax = 5;
+  optional baseapi.Vector3Float scale = 6;
 }
