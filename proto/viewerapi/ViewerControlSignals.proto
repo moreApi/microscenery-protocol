@@ -48,3 +48,27 @@ message NewHyperStack{
   optional float displayRangeMax = 5;
   optional baseapi.Vector3Float scale = 6;
 }
+
+message FunctionDescription{
+  string name = 1;
+  repeated ParameterDescription parameters = 2;
+}
+
+message ParameterDescription{
+  string name = 1;
+  bool isList = 2;
+  optional int32 maxLength = 3;
+  optional float min = 4;
+  optional float max = 5;
+}
+
+enum ParameterType{
+  PARAMETER_TYPE_UNSPECIFIED = 0;
+  PARAMETER_TYPE_FLOAT = 1;
+  PARAMETER_TYPE_INT = 2;
+  PARAMETER_TYPE_STRING = 3;
+  PARAMETER_TYPE_FLOAT_3 = 4;
+  PARAMETER_TYPE_FLOAT_4 = 5;
+  PARAMETER_TYPE_INT_3 = 6;
+  PARAMETER_TYPE_INT_4 = 7;
+}
