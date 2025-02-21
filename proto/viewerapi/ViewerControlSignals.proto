@@ -65,7 +65,7 @@ message FunctionDescription{
 message ParameterDescription{
   string name = 1;
   bool isList = 2;
-  ParameterType parameterType =3;
+  ParameterType parameterType = 3;
   optional int32 maxLength = 4;
   optional float min = 5;
   optional float max = 6;
