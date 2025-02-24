@@ -13,6 +13,7 @@ message ViewerControlSignal{
   oneof signal{
     Segmentation segmentation = 1;
     RequestStack requestStack = 2;
+    FunctionParameters functionParameters = 3;
   }
 }
 
@@ -26,12 +27,19 @@ message RequestStack{
   int32 id = 1;
 }
 
+message FunctionParameters{
+  string name = 1;
+  optional string target = 2;
+  string encodedParams = 10;
+}
+
 // ------- Server Signals ---------
 
 message ViewerSignal{
   oneof signal{
     SelectedStack selectedStack = 1;
     NewHyperStack newHyperStack = 2;
+    FunctionDescription functionDescription = 3;
   }
 }
 
@@ -57,9 +65,10 @@ message FunctionDescription{
 message ParameterDescription{
   string name = 1;
   bool isList = 2;
-  optional int32 maxLength = 3;
-  optional float min = 4;
-  optional float max = 5;
+  ParameterType parameterType =3;
+  optional int32 maxLength = 4;
+  optional float min = 5;
+  optional float max = 6;
 }
 
 enum ParameterType{
