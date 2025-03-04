@@ -9,42 +9,75 @@ option java_multiple_files = true;
 
 // ------- Client Signals ---------
 
-message ViewerControlSignal{
-  oneof signal{
+message ViewerControlSignal {
+  oneof signal {
     Segmentation segmentation = 1;
     RequestStack requestStack = 2;
+    FunctionParameters functionParameters = 3;
   }
 }
 
-message Segmentation{
+message Segmentation {
   repeated baseapi.Vector3Float foreground = 1;
   repeated baseapi.Vector3Float background = 2;
   int32 onId = 3;
 }
 
-message RequestStack{
+message RequestStack {
   int32 id = 1;
+}
+
+message FunctionParameters {
+  string name = 1;
+  optional string target = 2;
+  string encodedParams = 10;
 }
 
 // ------- Server Signals ---------
 
-message ViewerSignal{
-  oneof signal{
+message ViewerSignal {
+  oneof signal {
     SelectedStack selectedStack = 1;
     NewHyperStack newHyperStack = 2;
+    FunctionDescription functionDescription = 3;
   }
 }
 
-message SelectedStack{
+message SelectedStack {
   int32 hyperStackId = 1;
   int32 timePointIndex = 2;
 }
 
-message NewHyperStack{
+message NewHyperStack {
   int32 id = 1;
   string name = 2;
   repeated int32 timepointStackIds = 3;
   optional float displayRangeMin = 4;
   optional float displayRangeMax = 5;
   optional baseapi.Vector3Float scale = 6;
+}
+
+message FunctionDescription {
+  string name = 1;
+  repeated ParameterDescription parameters = 2;
+}
+
+message ParameterDescription {
+  string name = 1;
+  bool isList = 2;
+  ParameterType parameterType = 3;
+  optional int32 maxLength = 4;
+  optional float min = 5;
+  optional float max = 6;
+}
+
+enum ParameterType {
+  PARAMETER_TYPE_UNSPECIFIED = 0;
+  PARAMETER_TYPE_FLOAT = 1;
+  PARAMETER_TYPE_INT = 2;
+  PARAMETER_TYPE_STRING = 3;
+  PARAMETER_TYPE_FLOAT_3 = 4;
+  PARAMETER_TYPE_FLOAT_4 = 5;
+  PARAMETER_TYPE_INT_3 = 6;
+  PARAMETER_TYPE_INT_4 = 7;
 }
