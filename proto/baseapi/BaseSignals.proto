@@ -12,6 +12,7 @@ message BaseServerSignal{
   oneof signal{
       DataAvailableSignal dataAvailableSignal = 1;
       AppSpecific appSpecific = 2;
+      ServerHello serverHello = 10;
   }
 }
 
@@ -31,6 +32,19 @@ message DataAvailableSignal{
 
 message AppSpecific{
   bytes data = 1;
+}
+
+message ServerHello{
+  string serverName = 1;
+  EnumServerType serverType = 2;
+  string subType = 3;
+}
+
+enum EnumServerType{
+  SERVER_TYPE_UNKNOWN = 0;
+  SERVER_TYPE_OTHER = 1;
+  SERVER_TYPE_VIEWER = 2;
+  SERVER_TYPE_MICROSCOPE = 3;
 }
 
 message ClientSignOn {}
