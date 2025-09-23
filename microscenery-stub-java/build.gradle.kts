@@ -3,9 +3,10 @@ import com.google.protobuf.gradle.protoc
 plugins {
     kotlin("jvm") version embeddedKotlinVersion
     id("com.google.protobuf") version "0.8.19"
+    `java-library`
 }
 
-group = "me.jan"
+group = "org.withXR"
 version = "1.0-SNAPSHOT"
 
 repositories {
