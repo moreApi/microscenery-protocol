@@ -3,9 +3,10 @@ import com.google.protobuf.gradle.protoc
 plugins {
     kotlin("jvm") version embeddedKotlinVersion
     id("com.google.protobuf") version "0.8.19"
+    `java-library`
 }
 
-group = "me.jan"
+group = "org.withXR"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -29,8 +30,12 @@ java.sourceSets["main"].java {
 }
 
 java {
-    //sourceCompatibility = JavaVersion.VERSION_1_8
-    //targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions.jvmTarget = "1.8"
 }
 
 sourceSets["main"].proto {
