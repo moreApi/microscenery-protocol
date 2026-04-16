@@ -39,10 +39,12 @@ message AcquireStack{
 message Stop {};
 message AblationPoints{
   repeated AblationPoint points = 2;
+  int64 dwellTime = 1;
+  float laserPower = 3;
 }
 message AblationPoint{
   baseapi.Vector3Float position = 1;
-  // in nano
+  // in millis
   int64 dwellTime = 2;
   bool laserOn = 3;
   bool laserOff = 4;
